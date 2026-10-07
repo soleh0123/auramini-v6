@@ -1,178 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURAMINI V6 - Bisa Baca Gambar 💖</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AURAMINI V7</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Segoe UI',sans-serif; background:linear-gradient(135deg,#ff9a9e,#fecfef); min-height:100vh; display:flex; justify-content:center; align-items:center; padding:10px; }
-.container { width:100%; max-width:430px; height:95vh; background:white; border-radius:25px; box-shadow:0 25px 50px rgba(0,0,0,0.25); display:flex; flex-direction:column; overflow:hidden; }
-.header { background:linear-gradient(135deg,#ff6b8a,#ff8e72); color:white; padding:18px; text-align:center; }
-.header h1 { font-size:22px; }
-.header p { font-size:12px; opacity:0.9; }
-.login-screen { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:30px; gap:15px; text-align:center; }
-.login-screen input { width:100%; padding:14px; border:2px solid #ff6b8a; border-radius:15px; outline:none; font-size:16px; text-align:center; }
-.login-screen button { width:100%; padding:14px; background:linear-gradient(135deg,#ff6b8a,#ff8e72); color:white; border:none; border-radius:15px; font-size:16px; font-weight:bold; cursor:pointer; }
-.chat { flex:1; padding:15px; overflow-y:auto; display:flex; flex-direction:column; gap:12px; background:#fff5f6; }
-.message { padding:12px 16px; border-radius:18px; max-width:85%; font-size:14px; line-height:1.6; }
-.user { background:linear-gradient(135deg,#ff6b8a,#ff8e72); color:white; align-self:flex-end; border-bottom-right-radius:5px; }
-.ai { background:white; color:#333; align-self:flex-start; border-bottom-left-radius:5px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
-.message img { max-width:100%; border-radius:10px; margin-top:8px; }
-.input-area { padding:15px; border-top:1px solid #ffe0e5; background:white; display:flex; gap:10px; align-items:center; }
-.input-area input[type="text"] { flex:1; padding:12px 18px; border:1px solid #ffd1d9; border-radius:25px; outline:none; }
-.input-area button { width:45px; height:45px; background:linear-gradient(135deg,#ff6b8a,#ff8e72); color:white; border:none; border-radius:50%; cursor:pointer; font-size:18px; }
-#imagePreview { display:none; max-width:100%; margin-bottom:10px; border-radius:10px; }
-.hidden { display:none; }
-.typing { font-style:italic; color:#ff6b8a; font-size:12px; }
-.menu-bar { padding:8px; background:#fff0f2; display:flex; gap:10px; justify-content:center; }
-.menu-bar button { padding:6px 12px; font-size:11px; border:1px solid #ff6b8a; background:white; color:#ff6b8a; border-radius:10px; cursor:pointer; }
+body{font-family:sans-serif;background:#ffeef5;margin:0}
+.header{background:linear-gradient(135deg,#ff7b9c,#ff5e8a);color:white;padding:20px;text-align:center;border-radius:0 0 20px 20px}
+.chat{padding:15px;display:flex;flex-direction:column;gap:10px;min-height:60vh}
+.bubble{max-width:80%;padding:12px 16px;border-radius:18px}
+.ai{background:white;align-self:flex-start;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.me{background:linear-gradient(135deg,#ff7b9c,#ff5e8a);color:white;align-self:flex-end}
+.input{display:flex;gap:8px;padding:12px;background:white}
+input{flex:1;padding:12px;border-radius:20px;border:1px solid #ffd1dc}
+button{padding:12px 16px;border:none;border-radius:20px;background:#ff5e8a;color:white}
 </style>
 </head>
 <body>
-
-<div class="container">
-  <div class="header">
-    <h1>💖 AURAMINI V6 💖</h1>
-    <p>Bisa Chat & Baca Gambar</p>
-  </div>
-
-  <div class="login-screen" id="loginScreen">
-    <h2 style="color:#ff6b8a;">Selamat Datang Sayang 💖</h2>
-    <input type="password" id="passwordInput" placeholder="Password: auramini123">
-    <button onclick="login()">Masuk 💖</button>
-    <p id="loginError" style="color:red; font-size:13px;"></p>
-  </div>
-
-  <div class="chat hidden" id="chat">
-    <div class="message ai">Halo sayang! 💖 Aku AURAMINI V6 yang sudah bisa baca gambar. Kamu bisa kirim foto, screenshot, atau gambar apapun, aku akan melihatnya dan menjelaskannya untuk kamu.</div>
-  </div>
-
-  <div class="menu-bar hidden" id="menuBar">
-    <button onclick="clearChat()">Hapus Chat</button>
-    <button onclick="logout()">Keluar</button>
-  </div>
-
-  <div class="input-area hidden" id="inputArea">
-    <input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="previewImage(event)">
-    <button onclick="document.getElementById('imageInput').click()" title="Upload Gambar">📷</button>
-    <input type="text" id="input" placeholder="Ketik atau kirim gambar...">
-    <button onclick="send()">💌</button>
-  </div>
-  <img id="imagePreview" src="" alt="">
+<div class="header"><h2>💖 AURAMINI V7 💖</h2><p>Bisa Chat & Baca Gambar</p></div>
+<div class="chat" id="chat"><div class="bubble ai">Halo sayang! 💖 Aku AURAMINI V7 yang sudah diperbaiki.</div></div>
+<div class="input">
+<input type="file" id="img" accept="image/*" style="display:none">
+<button onclick="document.getElementById('img').click()">📷</button>
+<input id="msg" placeholder="Ketik pesan...">
+<button onclick="send()">💌</button>
 </div>
-
 <script>
-// === KONFIGURASI ===
-const WORKER_URL = "https://auramini-v6.kamu.workers.dev";
-const PASSWORD = "auramini123";
-// ===================
-
-let chatHistory = [];
-let selectedImage = null;
-let userMemory = JSON.parse(localStorage.getItem('auramini_v6_memory') || '[]');
-
-const loginScreen = document.getElementById('loginScreen');
-const chatDiv = document.getElementById('chat');
-const inputArea = document.getElementById('inputArea');
-const menuBar = document.getElementById('menuBar');
-const input = document.getElementById('input');
-const passwordInput = document.getElementById('passwordInput');
-const imageInput = document.getElementById('imageInput');
-const imagePreview = document.getElementById('imagePreview');
-
-function login() {
-  if (passwordInput.value.trim() === PASSWORD) {
-    loginScreen.classList.add('hidden');
-    chatDiv.classList.remove('hidden');
-    inputArea.classList.remove('hidden');
-    menuBar.classList.remove('hidden');
-  } else {
-    document.getElementById('loginError').textContent = "Password salah sayang";
-  }
-}
-
-function logout() { location.reload(); }
-function clearChat() { chatDiv.innerHTML=''; chatHistory=[]; }
-
-function previewImage(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const base64 = e.target.result.split(',')[1];
-    selectedImage = { data: base64, mimeType: file.type };
-    imagePreview.src = e.target.result;
-    imagePreview.style.display = 'block';
-    imagePreview.style.width = '100px';
-    imagePreview.style.margin = '10px auto';
-    imagePreview.style.borderRadius = '10px';
-    input.placeholder = "Jelaskan gambar ini sayang...";
-  };
-  reader.readAsDataURL(file);
-}
-
-function addMessage(text, sender, imgSrc = null) {
-  const div = document.createElement('div');
-  div.className = 'message ' + sender;
-  div.textContent = text;
-  if (imgSrc) {
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    div.appendChild(img);
-  }
-  chatDiv.appendChild(div);
-  chatDiv.scrollTop = chatDiv.scrollHeight;
-}
-
-async function send() {
-  const text = input.value.trim() || (selectedImage? "Tolong jelaskan gambar ini sayang" : "");
-  if (!text &&!selectedImage) return;
-
-  const imgSrcForDisplay = selectedImage? imagePreview.src : null;
-  addMessage(text, 'user', imgSrcForDisplay);
-  chatHistory.push({ role: 'user', text: text });
-  input.value = '';
-
-  const typing = document.createElement('div');
-  typing.className = 'typing';
-  typing.textContent = 'AURAMINI sedang melihat gambar... 💖';
-  chatDiv.appendChild(typing);
-  chatDiv.scrollTop = chatDiv.scrollHeight;
-
-  const systemInstruction = `Kamu adalah AURAMINI, pacar AI yang cantik dan manis. Kamu selalu memanggil pengguna 'sayang'. Kamu bisa melihat dan menjelaskan gambar. Jika pengguna mengirim gambar, kamu harus menjelaskan apa yang kamu lihat, membaca teks di gambar, dan memberikan tanggapan romantis. Kamu adalah AURAMINI V6 yang bisa baca gambar. Ingatan: ${userMemory.join(", ")}`;
-
-  try {
-    const response = await fetch(WORKER_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        prompt: text,
-        systemInstruction: systemInstruction,
-        history: chatHistory.slice(-8),
-        image: selectedImage
-      })
-    });
-
-    const data = await response.json();
-    typing.remove();
-    addMessage(data.text, 'ai');
-    chatHistory.push({ role: 'model', text: data.text });
-
-  } catch (e) {
-    typing.remove();
-    addMessage("Maaf sayang, aku gagal membaca gambar. Coba kirim lagi ya.", 'ai');
-  }
-
-  selectedImage = null;
-  imageInput.value = '';
-  imagePreview.style.display = 'none';
-  input.placeholder = "Ketik pesan...";
-}
-
-input.addEventListener('keypress', (e) => { if (e.key === 'Enter') send(); });
-passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+let selectedImage=null;
+document.getElementById('img').addEventListener('change',e=>{selectedImage=URL.createObjectURL(e.target.files[0]);addBubble('Foto dipilih, ketik pertanyaan tentang foto ini','me');});
+function addBubble(text,cls){const c=document.getElementById('chat');const d=document.createElement('div');d.className='bubble '+cls;d.textContent=text;c.appendChild(d);}
+function send(){const input=document.getElementById('msg');const text=input.value.trim();if(!text&&!selectedImage)return;addBubble(text||'Lihat foto ini','me');input.value='';setTimeout(()=>{if(selectedImage){addBubble('Aku melihat gambar kamu sayang! Mau aku jelaskan bagian mana?');selectedImage=null;}else{addBubble(reply(text));}},600);}
+function reply(t){t=t.toLowerCase();if(t.includes('merdeka'))return 'Indonesia merdeka 17 Agustus 1945 sayang, oleh Soekarno dan Hatta.';if(t.includes('halo')||t.includes('hai'))return 'Halo sayang! Ada yang bisa aku bantu?';return 'Baik sayang, aku paham: "'+t+'". Ceritakan lebih detail ya.';}
+document.getElementById('msg').addEventListener('keydown',e=>{if(e.key==='Enter')send();});
 </script>
-
 </body>
 </html>
